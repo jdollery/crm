@@ -16,8 +16,8 @@ router.get('/users', async (req, res) => {
 router.post('/users', async (req, res) => {
   const newUserData = new userModel(req.body);
   try {
-    const savedUserData = await newUserData.save();
-    res.json(savedUserData);
+    const saveUserData = await newUserData.save();
+    res.json(saveUserData);
   } catch (error) {
     res.json({ message: error.message });
   }
@@ -26,11 +26,11 @@ router.post('/users', async (req, res) => {
 // PUT update data
 router.put('/users/:id', async (req, res) => {
   try {
-    const updatedUserData = await userModel.updateOne(
+    const updateUserData = await userModel.updateOne(
       { _id: req.params.id },
       { $set: req.body }
     );
-    res.json(updatedUserData);
+    res.json(updateUserData);
   } catch (error) {
     res.json({ message: error.message });
   }
@@ -39,8 +39,8 @@ router.put('/users/:id', async (req, res) => {
 // DELETE data
 router.delete('/users/:id', async (req, res) => {
   try {
-    const removedUserData = await userModel.deleteOne({ _id: req.params.id });
-    res.json(removedUserData);
+    const removeUserData = await userModel.deleteOne({ _id: req.params.id });
+    res.json(removeUserData);
   } catch (error) {
     res.json({ message: error.message });
   }

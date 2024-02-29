@@ -1,17 +1,47 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+
+  // id: {
+  //   type: String,
+  //   autoIncrement: true,
+  //   primaryKey: true,
+  // },
+
   firstName: {
     type: String,
+    allowNull: false,
     required: true,
   },
+
   lastName: {
     type: String,
+    allowNull: false,
     required: true,
   },
-  description: {
-    type: String,
+
+  password: { 
+    type: String, 
+    required: true,
+    allowNull: false,
+    trim: true 
   },
+
+  createdOn: {
+    type:Date,
+    default:Date.now
+  },
+
+  status:{
+    type:Boolean,
+    required:true
+  },
+
+  role:{
+    type:Number,
+    required:true
+  },
+
 });
 
 const userModel = mongoose.model('userModel', userSchema);
