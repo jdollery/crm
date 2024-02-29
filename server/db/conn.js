@@ -5,9 +5,10 @@ const options = {
   useUnifiedTopology:  true
 };
 
-mongoose.createConnection(
+const connection = mongoose.connect(
   process.env.ATLAS_URI,
   options
 )
-.then(()=>console.log('connected'))
-.catch(e=>console.log(e));
+
+connection.then(()=>console.log('connected'))
+connection.catch(e=>console.log(e));

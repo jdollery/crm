@@ -8,7 +8,7 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
-app.use(require("./routes/usersRoute"));
+app.use(require("./routes/userRoute"));
 
 require("./db/conn");
 
